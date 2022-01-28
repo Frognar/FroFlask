@@ -3,13 +3,24 @@
 
 <head>
   {% block head %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <title>{% block title %}{% endblock %} - My Webpage</title>
   {% endblock %}
 </head>
 
 <body>
-  <div id="content">{% block content %}{% endblock %}</div>
+  <div id="header">
+    {% if name %}
+    <h1>{{name}}</h1>
+    {% else %}
+    <h1>Lorem</h1>
+    {% endif %}
+  </div>
+  <div id="content">
+    {% block content %}
+    {% endblock %}
+  </div>
   <div id="footer">
     {% block footer %}
     &copy; Copyright 2022 by <a href="https://github.com/Frognar/">Frognar</a>.
